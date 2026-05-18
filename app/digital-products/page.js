@@ -9,7 +9,7 @@ const PRODUCTS = [
     tagline: "A reference guide built alongside the Freemix mixing series.",
     price: 5,
     cover: "/products/freemix-companion-cover.png",
-    buyUrl: null, // TODO: paste Gumroad product URL here
+    buyUrl: "https://compassadmin.gumroad.com/l/nrvln",
   },
 ];
 
