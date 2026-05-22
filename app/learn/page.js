@@ -120,15 +120,15 @@ export default function LearnIndex() {
                 </p>
                 <p style={{
                   fontFamily: 'var(--font-dm-sans), sans-serif',
-                  fontSize: 12, color: '#555', lineHeight: 1.55, marginTop: 2,
+                  fontSize: 12, color: '#aaa', lineHeight: 1.55, marginTop: 2,
                 }}>
                   {product.tagline}
                 </p>
                 <p style={{
                   fontFamily: 'var(--font-libre), Georgia, serif',
                   fontSize: 17, fontWeight: 700,
-                  color: product.buyUrl ? '#F0C400' : '#333',
-                  marginTop: 8,
+                  color: product.buyUrl ? '#F0C400' : '#444',
+                  marginTop: 8, textAlign: 'center', alignSelf: 'center',
                 }}>
                   {product.buyUrl ? `$${product.price}` : 'Soon'}
                 </p>

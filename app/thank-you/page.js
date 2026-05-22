@@ -26,10 +26,17 @@ export default function ThankYou() {
         </h1>
         <p style={{
           fontFamily: 'var(--font-dm-sans), sans-serif',
-          fontSize: 16, color: '#888', lineHeight: 1.8, marginBottom: 72,
+          fontSize: 16, color: '#e0e0e0', lineHeight: 1.8, marginBottom: 16,
         }}>
-          Check your email — your download link is on its way.<br />
-          [Needs copy — what to do next]
+          Check your email — your download link is on its way.
+        </p>
+        <p style={{
+          fontFamily: 'var(--font-dm-sans), sans-serif',
+          fontSize: 15, color: '#aaa', lineHeight: 1.8, marginBottom: 72,
+        }}>
+          Take some time with it. If anything in the reading resonates — a section that feels
+          particularly sharp or a gap you hadn&apos;t quite named before — that&apos;s usually
+          the sign that a conversation would be worth having.
         </p>
 
         {/* Cross-sell to coaching */}
@@ -53,9 +60,11 @@ export default function ThankYou() {
           </h2>
           <p style={{
             fontFamily: 'var(--font-dm-sans), sans-serif',
-            fontSize: 15, color: '#888', lineHeight: 1.8, marginBottom: 28,
+            fontSize: 15, color: '#aaa', lineHeight: 1.8, marginBottom: 28,
           }}>
-            [Needs copy — bridge from product purchase to coaching offer]
+            The Compass framework was built from the same foundation as this product.
+            Coaching with Compass goes deeper — a live conversation, a producer profile
+            built from your Skill Tree scores, and a clear plan for what to focus on next.
           </p>
           <Link
             href="/work-with-us"
