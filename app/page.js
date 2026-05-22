@@ -18,7 +18,6 @@ export default function Home() {
           line-height: 1.78;
         }
         @media (min-width: 640px) { .bt { font-size: 17px; } }
-        .bt em { font-style: italic; }
         .story-left {
           margin-left: -24px;
           padding: 22px 20px 22px 24px;
@@ -68,34 +67,69 @@ export default function Home() {
 
           {/* ── BLOCK 1: ASPIRATIONAL — left card, white text ── */}
           <div style={{
-            background: '#111111',
-            borderRadius: 14, padding: '28px 24px',
+            background: '#111111', borderRadius: 14, padding: '28px 24px',
             maxWidth: 460, marginLeft: 0, marginRight: 'auto',
             marginTop: 40, marginBottom: 20,
           }}>
-            <p className="bt" style={{ color: '#e8e8e8', textAlign: 'left' }}>
-              Think about the last time you went to sleep amped from a great session making music.
-              Or the last time you woke up and knew that the day was going to be dedicated to
-              nothing but diving into your music craft. The more successful you are as a producer,
-              the more often you have those days.
-            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              <p className="bt" style={{ color: '#e8e8e8', fontWeight: 600 }}>
+                Remember the last session where you lost track of time.
+              </p>
+              <p className="bt" style={{ color: '#e8e8e8' }}>
+                You were locked in. The ideas were flowing. You went to bed that night actually
+                satisfied — not just tired. The best producers in the world have more of those
+                days, not fewer. That&apos;s not a coincidence.
+              </p>
+            </div>
           </div>
 
-          {/* ── BLOCK 2: PAIN — center card, yellow text ── */}
+          {/* ── BLOCK 2: CORTISOL — center card, yellow text ── */}
           <div style={{
-            background: '#0b0b1a',
-            borderRadius: 14, padding: '28px 24px',
+            background: '#0b0b1a', borderRadius: 14, padding: '28px 24px',
             maxWidth: 490, margin: '0 auto 20px',
           }}>
-            <p className="bt" style={{ color: '#F0C400', textAlign: 'center' }}>
-              If it&apos;s been a while since you&apos;ve felt that way, it&apos;s not because
-              you&apos;re worse at producing. It&apos;s because you became aware of more skills
-              that were necessary to propel yourself forward.
-            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14, textAlign: 'center' }}>
+              <p className="bt" style={{ color: '#F0C400', fontWeight: 600 }}>
+                So why does it feel like it&apos;s getting harder, not easier?
+              </p>
+              <p className="bt" style={{ color: '#F0C400' }}>
+                You&apos;ve put in the hours. You&apos;ve got tracks; maybe hundreds of them. But
+                the more you learn about what &ldquo;good&rdquo; looks like, the more aware you
+                become of everything you haven&apos;t figured out yet. The gap between where you
+                are and where you want to be feels like it keeps widening.{' '}
+                That&apos;s a navigation problem.{' '}
+                <span style={{ color: '#fff', fontWeight: 600 }}>You don&apos;t have a compass.</span>
+              </p>
+            </div>
           </div>
 
-          {/* ── STORY BLOCKS ── */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 20 }}>
+          {/* ── BLOCK 3: SOLUTION — right card, white text ── */}
+          <div style={{
+            background: '#160e00', borderRadius: 14, padding: '28px 24px',
+            maxWidth: 460, marginLeft: 'auto', marginRight: 0,
+            marginBottom: 16,
+          }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14, textAlign: 'right' }}>
+              <p className="bt" style={{ color: '#F0C400', fontWeight: 600 }}>
+                Compass is a gamified skill tree built specifically for music producers.
+              </p>
+              <p className="bt" style={{ color: '#e8e8e8' }}>
+                Developed by Zach Burger (<em>RemEmber</em>) and Skyler Newsome (<em>Circles in the Sky</em>),
+                Compass maps your production abilities across 10 areas and shows you exactly where
+                you&apos;re strong and exactly where you&apos;re stuck. That stuck area is your{' '}
+                <strong style={{ color: '#F0C400', fontWeight: 700 }}>North Star</strong>: the one
+                thing that, if you moved it, would unlock everything else.
+              </p>
+              <p className="bt" style={{ color: '#e8e8e8' }}>
+                The framework has grown into a community of over 200 producers, a suite of digital
+                products, and a coaching program for producers who take their craft seriously enough
+                to want real guidance.
+              </p>
+            </div>
+          </div>
+
+          {/* ── STORY BLOCKS — below solution ── */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 20 }}>
             <div className="story-left">
               <p className="bt" style={{ color: '#ddd' }}>
                 &ldquo;Six years ago I had 600 songs and hadn&apos;t released a single one.
@@ -105,76 +139,47 @@ export default function Home() {
             </div>
             <div className="story-right">
               <p className="bt" style={{ color: '#ddd' }}>
-                &ldquo;I spent 10 years wanting to make music for video games, then finally
-                spent 6 years actually making music for video games. I put the knowledge I
-                gained into the Compass framework.&rdquo;
+                &ldquo;I spent 10 years wanting to make music for video games. Then I spent
+                6 years actually doing it. Everything I learned went into this.&rdquo;
               </p>
               <p className="story-attr">Skyler Newsome — Circles in the Sky</p>
             </div>
           </div>
 
-          {/* ── BLOCK 3: SOLUTION — right card, white text, yellow on em ── */}
+          {/* ── BLOCK 4: INACTION — left card, yellow text ── */}
           <div style={{
-            background: '#160e00',
-            borderRadius: 14, padding: '28px 24px',
-            maxWidth: 460, marginLeft: 'auto', marginRight: 0,
+            background: '#111111', borderRadius: 14, padding: '28px 24px',
+            maxWidth: 460, marginLeft: 0, marginRight: 'auto',
             marginBottom: 20,
           }}>
-            <div style={{
-              display: 'flex', flexDirection: 'column', gap: 14,
-              textAlign: 'right',
-            }}>
-              <p className="bt" style={{ color: '#e8e8e8' }}>
-                <em style={{ color: '#F0C400' }}>Compass for Music Producers</em> is a gamified
-                framework developed by producers{' '}
-                Zach Burger (<em style={{ color: '#F0C400' }}>RemEmber</em>) and{' '}
-                Skyler Newsome (<em style={{ color: '#F0C400' }}>Circles in the Sky</em>).
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              <p className="bt" style={{ color: '#F0C400', fontWeight: 600 }}>
+                Most producers never figure out what&apos;s actually holding them back.
               </p>
-              <p className="bt" style={{ color: '#e8e8e8' }}>
-                Think about it like a{' '}
-                <strong style={{ color: '#F0C400', fontWeight: 700 }}>skill tree</strong>{' '}
-                for{' '}
-                <strong style={{ color: '#F0C400', fontWeight: 700 }}>music producers</strong>.
-              </p>
-              <p className="bt" style={{ color: '#e8e8e8' }}>
-                Every producer will have a different profile. Seeing your scores in each of the
-                10 areas is meant to encourage you in your strong suits, and reveal which area
-                needs the most work: what we call your{' '}
-                <strong style={{ color: '#F0C400', fontWeight: 700 }}>North Star</strong>.
+              <p className="bt" style={{ color: '#F0C400' }}>
+                They keep making tracks. They keep improving at the things they&apos;re already
+                good at. And they drift further from the version of themselves that actually ships
+                music, finishes things, and builds a career. The catalog grows. The fulfillment
+                doesn&apos;t.
               </p>
             </div>
           </div>
 
-          {/* ── BLOCK 4: INACTION — left card, yellow text ── */}
+          {/* ── BLOCK 5: RELIEVE TENSION — center card, white text ── */}
           <div style={{
-            background: '#111111',
-            borderRadius: 14, padding: '28px 24px',
-            maxWidth: 460, marginLeft: 0, marginRight: 'auto',
-            marginBottom: 20,
-          }}>
-            <p className="bt" style={{ color: '#F0C400', textAlign: 'left' }}>
-              If we hadn&apos;t taken the initiative to build out a{' '}
-              <strong style={{ color: '#fff', fontWeight: 700 }}>system</strong>{' '}
-              for our music careers, we would still be sitting on hundreds of tracks and
-              floating through life with a deep sense of being unfulfilled by our musical
-              endeavors; feeling like we hadn&apos;t accomplished much at all.
-            </p>
-          </div>
-
-          {/* ── BLOCK 5: WHAT WE BUILT — center card, white text ── */}
-          <div style={{
-            background: '#0b0b1a',
-            borderRadius: 14, padding: '28px 24px',
+            background: '#0b0b1a', borderRadius: 14, padding: '28px 24px',
             maxWidth: 490, margin: '0 auto 48px',
           }}>
-            <p className="bt" style={{ color: '#e8e8e8', textAlign: 'center' }}>
-              With these years of experience, Skyler and Zach have built a suite of digital
-              products and a coaching framework called{' '}
-              <strong style={{ color: '#F0C400', fontWeight: 700 }}>Compass</strong>{' '}
-              that uses a 10-area Skill Tree to figure out where the &ldquo;stuck&rdquo; piece
-              is, and get it moving so producers can start feeling invigorated by making music
-              again.
-            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14, textAlign: 'center' }}>
+              <p className="bt" style={{ color: '#e8e8e8', fontWeight: 600 }}>
+                You don&apos;t have to figure this out alone — and you don&apos;t have to commit
+                to anything today.
+              </p>
+              <p className="bt" style={{ color: '#e8e8e8' }}>
+                Start with the free resources. Read the frameworks. See where you actually stand.
+                When you&apos;re ready to move faster, coaching is there.
+              </p>
+            </div>
           </div>
 
           {/* ── CTA ── */}
