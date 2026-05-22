@@ -1,17 +1,5 @@
 import Link from "next/link";
-
-// Add new products here — one entry per product.
-const PRODUCTS = [
-  {
-    slug: "freemix-companion",
-    name: "Freemix Companion",
-    area: "Mixing",
-    tagline: "A reference guide built alongside the Freemix mixing series.",
-    price: 5,
-    cover: "/products/freemix-companion-cover.png",
-    buyUrl: "https://compassadmin.gumroad.com/l/nrvln",
-  },
-];
+import { PRODUCTS } from "@/lib/products";
 
 export const metadata = {
   title: "Digital Products — Compass for Music Producers",
@@ -51,7 +39,6 @@ export default function DigitalProducts() {
                 flexDirection: 'column',
               }}
             >
-              {/* Cover image */}
               {product.cover && (
                 <img
                   src={product.cover}
@@ -60,7 +47,6 @@ export default function DigitalProducts() {
                 />
               )}
 
-              {/* Product info */}
               <div style={{ padding: '24px 24px 28px', textAlign: 'center' }}>
                 <p style={{
                   fontFamily: 'var(--font-montserrat), sans-serif',
@@ -83,25 +69,25 @@ export default function DigitalProducts() {
                 </p>
 
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16 }}>
-                  <span style={{
-                    fontFamily: 'var(--font-libre), Georgia, serif',
-                    fontSize: 22, fontWeight: 700, color: '#F0C400',
-                  }}>
-                    ${product.price}
-                  </span>
+                  {product.price && (
+                    <span style={{
+                      fontFamily: 'var(--font-libre), Georgia, serif',
+                      fontSize: 22, fontWeight: 700, color: '#F0C400',
+                    }}>
+                      ${product.price}
+                    </span>
+                  )}
                   {product.buyUrl ? (
-                    <a
-                      href={product.buyUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href={`/digital-products/${product.slug}`}
                       style={{
                         background: '#F0C400', color: '#000',
                         fontSize: 13, fontWeight: 700, padding: '11px 28px',
                         borderRadius: 50, textDecoration: 'none', letterSpacing: '0.06em',
                       }}
                     >
-                      Buy →
-                    </a>
+                      View →
+                    </Link>
                   ) : (
                     <span style={{
                       background: '#111', color: '#444', border: '1px solid #222',
