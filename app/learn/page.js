@@ -1,12 +1,5 @@
 import Link from "next/link";
-import { AREA_ORDER, articles, SLUG_ORDER } from "@/lib/articles";
 import { PRODUCTS } from "@/lib/products";
-
-const SLUG_LABELS = {
-  "what-is":    "What Is It?",
-  "low-score":  "Low Score",
-  "high-score": "High Score",
-};
 
 export const metadata = {
   title: "Articles & Digital Products — Compass for Music Producers",
@@ -17,7 +10,7 @@ function CoachingPlug() {
     <div style={{
       border: '1px solid #1a1a1a', borderRadius: 16,
       padding: '28px 24px', textAlign: 'center',
-      margin: '48px 0',
+      margin: '40px 0',
     }}>
       <p style={{
         fontFamily: 'var(--font-montserrat), sans-serif',
@@ -49,173 +42,146 @@ function CoachingPlug() {
 
 export default function LearnIndex() {
   return (
-    <div style={{ minHeight: '100dvh', background: '#000', color: '#fff', display: 'flex', flexDirection: 'column' }}>
-      <div style={{ maxWidth: 620, margin: '0 auto', width: '100%', padding: '56px 24px 80px' }}>
+    <>
+      <style>{`
+        .grid-card {
+          border: 1px solid #1a1a1a;
+          border-radius: 14px;
+          padding: 20px 18px 22px;
+          text-decoration: none;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          transition: border-color 0.15s;
+        }
+        .grid-card:hover { border-color: #333; }
+        .grid-card-featured {
+          border: 1px solid #2a2a2a;
+          border-radius: 14px;
+          padding: 22px 22px 24px;
+          text-decoration: none;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          gap: 20px;
+          transition: border-color 0.15s;
+          grid-column: 1 / -1;
+        }
+        .grid-card-featured:hover { border-color: #F0C40033; }
+      `}</style>
 
-        {/* Page header */}
-        <p style={{
-          fontFamily: 'var(--font-montserrat), sans-serif',
-          fontSize: 10, fontWeight: 600, letterSpacing: '0.2em',
-          textTransform: 'uppercase', color: '#444',
-          textAlign: 'center', marginBottom: 10,
-        }}>
-          Compass for Music Producers
-        </p>
-        <h1 style={{
-          fontFamily: 'var(--font-libre), Georgia, serif',
-          fontSize: 'clamp(26px, 5vw, 40px)',
-          fontWeight: 700, textAlign: 'center', color: '#fff',
-          marginBottom: 56, lineHeight: 1.2,
-        }}>
-          Articles &amp; Digital Products
-        </h1>
+      <div style={{ minHeight: '100dvh', background: '#000', color: '#fff', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ maxWidth: 620, margin: '0 auto', width: '100%', padding: '56px 24px 80px' }}>
 
-        {/* ── DIGITAL PRODUCTS ── */}
-        <section style={{ marginBottom: 8 }}>
           <p style={{
             fontFamily: 'var(--font-montserrat), sans-serif',
-            fontSize: 10, fontWeight: 600, letterSpacing: '0.18em',
-            textTransform: 'uppercase', color: '#444', marginBottom: 20,
+            fontSize: 10, fontWeight: 600, letterSpacing: '0.2em',
+            textTransform: 'uppercase', color: '#444',
+            textAlign: 'center', marginBottom: 10,
           }}>
-            Digital Products
+            Compass for Music Producers
           </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <h1 style={{
+            fontFamily: 'var(--font-libre), Georgia, serif',
+            fontSize: 'clamp(26px, 5vw, 40px)',
+            fontWeight: 700, textAlign: 'center', color: '#fff',
+            marginBottom: 48, lineHeight: 1.2,
+          }}>
+            Articles &amp; Digital Products
+          </h1>
+
+          {/* ── GRID ── */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: 12,
+          }}>
+
+            {/* Digital product cards */}
             {PRODUCTS.map((product) => (
               <Link
                 key={product.slug}
                 href={`/digital-products/${product.slug}`}
-                style={{
-                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                  border: '1px solid #1a1a1a', borderRadius: 12,
-                  padding: '18px 20px', textDecoration: 'none',
-                  gap: 16,
-                }}
+                className="grid-card"
               >
-                <div style={{ minWidth: 0 }}>
-                  <p style={{
-                    fontFamily: 'var(--font-montserrat), sans-serif',
-                    fontSize: 9, fontWeight: 600, letterSpacing: '0.16em',
-                    textTransform: 'uppercase', color: '#555', marginBottom: 5,
-                  }}>
-                    {product.area}
-                  </p>
-                  <p style={{
-                    fontFamily: 'var(--font-libre), Georgia, serif',
-                    fontSize: 17, fontWeight: 700, color: '#fff', marginBottom: 4,
-                  }}>
-                    {product.name}
-                  </p>
-                  <p style={{
-                    fontFamily: 'var(--font-dm-sans), sans-serif',
-                    fontSize: 13, color: '#666', lineHeight: 1.6,
-                  }}>
-                    {product.tagline}
-                  </p>
-                </div>
-                <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                  {product.buyUrl ? (
-                    <span style={{
-                      fontFamily: 'var(--font-libre), Georgia, serif',
-                      fontSize: 20, fontWeight: 700, color: '#F0C400',
-                    }}>
-                      ${product.price}
-                    </span>
-                  ) : (
-                    <span style={{
-                      fontFamily: 'var(--font-montserrat), sans-serif',
-                      fontSize: 9, color: '#333', letterSpacing: '0.1em',
-                      textTransform: 'uppercase',
-                    }}>
-                      Soon
-                    </span>
-                  )}
-                </div>
+                <p style={{
+                  fontFamily: 'var(--font-montserrat), sans-serif',
+                  fontSize: 9, fontWeight: 600, letterSpacing: '0.16em',
+                  textTransform: 'uppercase', color: '#444',
+                }}>
+                  {product.area}
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-libre), Georgia, serif',
+                  fontSize: 16, fontWeight: 700, color: '#fff', lineHeight: 1.25,
+                }}>
+                  {product.name}
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-dm-sans), sans-serif',
+                  fontSize: 12, color: '#555', lineHeight: 1.55, marginTop: 2,
+                }}>
+                  {product.tagline}
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-libre), Georgia, serif',
+                  fontSize: 17, fontWeight: 700,
+                  color: product.buyUrl ? '#F0C400' : '#333',
+                  marginTop: 8,
+                }}>
+                  {product.buyUrl ? `$${product.price}` : 'Soon'}
+                </p>
               </Link>
             ))}
+
+            {/* The Skill Tree — featured full-width card */}
+            <Link href="/the-skill-tree" className="grid-card-featured">
+              <div>
+                <p style={{
+                  fontFamily: 'var(--font-montserrat), sans-serif',
+                  fontSize: 9, fontWeight: 600, letterSpacing: '0.16em',
+                  textTransform: 'uppercase', color: '#555', marginBottom: 6,
+                }}>
+                  Article
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-libre), Georgia, serif',
+                  fontSize: 20, fontWeight: 700, color: '#F0C400',
+                  lineHeight: 1.2, marginBottom: 8,
+                }}>
+                  The Compass Skill Tree
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-dm-sans), sans-serif',
+                  fontSize: 14, color: '#666', lineHeight: 1.6,
+                }}>
+                  An introduction to all 10 areas of the Compass framework — what each one means
+                  for your production journey.
+                </p>
+              </div>
+              <span style={{ color: '#444', fontSize: 20, flexShrink: 0 }}>→</span>
+            </Link>
+
           </div>
-        </section>
 
-        <CoachingPlug />
+          <CoachingPlug />
 
-        {/* ── ARTICLES ── */}
-        <section>
-          <p style={{
-            fontFamily: 'var(--font-montserrat), sans-serif',
-            fontSize: 10, fontWeight: 600, letterSpacing: '0.18em',
-            textTransform: 'uppercase', color: '#444', marginBottom: 24,
-          }}>
-            Articles
-          </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 36 }}>
-            {AREA_ORDER.map((area) => {
-              const areaData = articles[area];
-              return (
-                <div key={area}>
-                  <p style={{
-                    fontFamily: 'var(--font-libre), Georgia, serif',
-                    fontSize: 19, fontWeight: 700, color: '#F0C400',
-                    marginBottom: 12,
-                  }}>
-                    {areaData.label}
-                  </p>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                    {SLUG_ORDER.map((slug) => {
-                      const art = areaData[slug];
-                      if (!art) return null;
-                      return (
-                        <Link
-                          key={slug}
-                          href={`/${area}/${slug}`}
-                          style={{
-                            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                            padding: '12px 16px',
-                            border: '1px solid #141414', borderRadius: 8,
-                            textDecoration: 'none',
-                          }}
-                        >
-                          <div>
-                            <span style={{
-                              fontFamily: 'var(--font-montserrat), sans-serif',
-                              fontSize: 9, fontWeight: 600, letterSpacing: '0.14em',
-                              textTransform: 'uppercase', color: '#444',
-                              display: 'block', marginBottom: 3,
-                            }}>
-                              {SLUG_LABELS[slug]}
-                            </span>
-                            <span style={{
-                              fontFamily: 'var(--font-dm-sans), sans-serif',
-                              fontSize: 14, color: '#ccc',
-                            }}>
-                              {art.title}
-                            </span>
-                          </div>
-                          <span style={{ color: '#333', fontSize: 14, flexShrink: 0 }}>→</span>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
+        </div>
 
-        <CoachingPlug />
-
+        {/* Footer */}
+        <div style={{
+          marginTop: 'auto',
+          fontFamily: 'var(--font-montserrat), sans-serif',
+          fontSize: 9, fontWeight: 600, letterSpacing: '0.14em',
+          textTransform: 'uppercase', color: '#444',
+          textAlign: 'center', paddingBottom: 20,
+          display: 'flex', flexDirection: 'column', gap: 3,
+        }}>
+          <div>© {new Date().getFullYear()} ZMT LLC</div>
+          <div>Compass for Music Producers</div>
+        </div>
       </div>
-
-      {/* Footer */}
-      <div style={{
-        marginTop: 'auto',
-        fontFamily: 'var(--font-montserrat), sans-serif',
-        fontSize: 9, fontWeight: 600, letterSpacing: '0.14em',
-        textTransform: 'uppercase', color: '#444',
-        textAlign: 'center', paddingBottom: 20,
-        display: 'flex', flexDirection: 'column', gap: 3,
-      }}>
-        <div>© {new Date().getFullYear()} ZMT LLC</div>
-        <div>Compass for Music Producers</div>
-      </div>
-    </div>
+    </>
   );
 }
