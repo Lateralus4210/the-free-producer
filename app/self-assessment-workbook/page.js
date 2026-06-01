@@ -316,6 +316,21 @@ function AreaPage({ area, areaIndex, answers, onAnswerChange, scoreValue, onScor
         </div>
       </div>
 
+      <p style={{
+        fontFamily: 'var(--font-dm-sans), sans-serif',
+        fontSize: 12, color: '#333', textAlign: 'center', marginBottom: 20,
+      }}>
+        Want a downloadable version of this workbook?{' '}
+        <a
+          href="https://compassadmin.gumroad.com/l/ppint"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: '#555', textDecoration: 'underline' }}
+        >
+          Click here
+        </a>
+      </p>
+
       <NavBar
         current={areaIndex + 1}
         total={10}
