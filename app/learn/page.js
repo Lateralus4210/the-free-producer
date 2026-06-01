@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { PRODUCTS } from "@/lib/products";
 
 export const metadata = {
-  title: "Articles & Digital Products — Compass for Music Producers",
+  title: "Free Resources — Compass for Music Producers",
 };
 
 function CoachingPlug() {
@@ -86,81 +85,85 @@ export default function LearnIndex() {
             fontFamily: 'var(--font-libre), Georgia, serif',
             fontSize: 'clamp(26px, 5vw, 40px)',
             fontWeight: 700, textAlign: 'center', color: '#fff',
-            marginBottom: 48, lineHeight: 1.2,
+            marginBottom: 12, lineHeight: 1.2,
           }}>
-            Articles &amp; Digital Products
+            Free Resources
           </h1>
-
-          {/* ── GRID ── */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: 12,
+          <p style={{
+            fontFamily: 'var(--font-dm-sans), sans-serif',
+            fontSize: 14, color: '#555', textAlign: 'center',
+            lineHeight: 1.7, marginBottom: 48,
           }}>
+            Two documents built to help you figure out where you are and where to go next.
+          </p>
 
-            {/* Digital product cards */}
-            {PRODUCTS.map((product) => (
-              <Link
-                key={product.slug}
-                href={`/digital-products/${product.slug}`}
-                className="grid-card"
-              >
-                <p style={{
-                  fontFamily: 'var(--font-montserrat), sans-serif',
-                  fontSize: 9, fontWeight: 600, letterSpacing: '0.16em',
-                  textTransform: 'uppercase', color: '#444',
-                }}>
-                  {product.area}
-                </p>
-                <p style={{
-                  fontFamily: 'var(--font-libre), Georgia, serif',
-                  fontSize: 16, fontWeight: 700, color: '#fff', lineHeight: 1.25,
-                }}>
-                  {product.name}
-                </p>
-                <p style={{
-                  fontFamily: 'var(--font-dm-sans), sans-serif',
-                  fontSize: 12, color: '#aaa', lineHeight: 1.55, marginTop: 2,
-                }}>
-                  {product.tagline}
-                </p>
-                <p style={{
-                  fontFamily: 'var(--font-libre), Georgia, serif',
-                  fontSize: 17, fontWeight: 700,
-                  color: product.buyUrl ? '#F0C400' : '#444',
-                  marginTop: 8, textAlign: 'center', alignSelf: 'center',
-                }}>
-                  {product.buyUrl ? `$${product.price}` : 'Soon'}
-                </p>
-              </Link>
-            ))}
+          {/* ── CARDS ── */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
 
-            {/* The Skill Tree — featured full-width card */}
-            <Link href="/the-skill-tree" className="grid-card-featured">
+            {/* Compass Essentials */}
+            <Link href="/compass-essentials" className="grid-card-featured" style={{ flexDirection: 'column', alignItems: 'flex-start' }}>
               <div>
                 <p style={{
                   fontFamily: 'var(--font-montserrat), sans-serif',
                   fontSize: 9, fontWeight: 600, letterSpacing: '0.16em',
                   textTransform: 'uppercase', color: '#555', marginBottom: 6,
                 }}>
-                  Article
+                  12 essays · Free
                 </p>
                 <p style={{
                   fontFamily: 'var(--font-libre), Georgia, serif',
-                  fontSize: 20, fontWeight: 700, color: '#F0C400',
+                  fontSize: 22, fontWeight: 700, color: '#F0C400',
                   lineHeight: 1.2, marginBottom: 8,
                 }}>
-                  The Compass Skill Tree
+                  Compass Essentials
                 </p>
                 <p style={{
                   fontFamily: 'var(--font-dm-sans), sans-serif',
                   fontSize: 14, color: '#666', lineHeight: 1.6,
                 }}>
-                  An introduction to all 10 areas of the Compass framework — what each one means
-                  for your production journey.
+                  The mindset, habits, and decisions that separate producers who keep going from producers who don&apos;t.
                 </p>
               </div>
-              <span style={{ color: '#444', fontSize: 20, flexShrink: 0 }}>→</span>
+              <p style={{
+                fontFamily: 'var(--font-montserrat), sans-serif',
+                fontSize: 10, fontWeight: 700, color: '#F0C400',
+                letterSpacing: '0.08em', marginTop: 14,
+              }}>
+                Start reading →
+              </p>
+            </Link>
+
+            {/* Self-Assessment Workbook */}
+            <Link href="/self-assessment-workbook" className="grid-card-featured" style={{ flexDirection: 'column', alignItems: 'flex-start' }}>
+              <div>
+                <p style={{
+                  fontFamily: 'var(--font-montserrat), sans-serif',
+                  fontSize: 9, fontWeight: 600, letterSpacing: '0.16em',
+                  textTransform: 'uppercase', color: '#555', marginBottom: 6,
+                }}>
+                  10 areas · Free
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-libre), Georgia, serif',
+                  fontSize: 22, fontWeight: 700, color: '#fff',
+                  lineHeight: 1.2, marginBottom: 8,
+                }}>
+                  Compass Self-Assessment Workbook
+                </p>
+                <p style={{
+                  fontFamily: 'var(--font-dm-sans), sans-serif',
+                  fontSize: 14, color: '#666', lineHeight: 1.6,
+                }}>
+                  A guided journey through all 10 Compass areas. Find your North Star before your first coaching call.
+                </p>
+              </div>
+              <p style={{
+                fontFamily: 'var(--font-montserrat), sans-serif',
+                fontSize: 10, fontWeight: 700, color: '#aaa',
+                letterSpacing: '0.08em', marginTop: 14,
+              }}>
+                Take the assessment →
+              </p>
             </Link>
 
           </div>
